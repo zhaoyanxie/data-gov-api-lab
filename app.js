@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const loadJSON = require("./utils/helper-functions").loadJSON;
 
-const data = loadJSON("./utils/data.json");
+const data = require("./utils/data.json");
+console.log(data)
 
 app.use(express.json());
 
