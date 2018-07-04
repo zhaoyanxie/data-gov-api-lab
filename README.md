@@ -27,3 +27,8 @@ In this lab, we will create CRUD api endpoints to serve data in real-time! The d
     - `DELETE /data/:someParameter`
     - (note: your handlers would only change the data in memory, meaning that once you restart your server, it will revert to the original data loaded from the JSON file. Nonetheless, for practice purposes, we'll implement handlers for these CRUD routes)
 
+#### Bonus tasks:
+- Rinse and repeat for another CSV file from data.gov! You can rename your CRUD path from `/data` to something more sensible. For example:
+  - `http://localhost:3000/childcare-centres` - for CRUD-ing data related to childcare centres
+  - `http://localhost:3000/dengue` - for CRUD-ing data related to dengue
+  - `http://localhost:3000/nlb-infopedia` - for CRUD-ing data related to national library board infopedia
