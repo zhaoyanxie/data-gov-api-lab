@@ -14,8 +14,8 @@ In this lab, we will create CRUD api endpoints to serve data in real-time! The d
   - (if you can't find any interesting data in CSV format, you can serve the kindergarten data, which you can find in `./utils/`)
 - Unzip the downloaded file move the csv file to `./utils` and rename it to `utils/data.csv` (you can replace the existing file)
 - Convert csv file to JSON: `node utils/convertCSVToJSON.js` (you can replace the existing file)
-- Load JSON data as a javascript object. You can find a code sample for doing this in `./demo.js`. Execute demo.js by running: `node demo.js`
-- Serve data via CRUD endpoints!
+- Load JSON data as a javascript object. You can find a code sample for doing this in `./app.js`. Execute demo.js by running: `npx nodemon app.js`
+- Serve data via CRUD endpoints! For each endpoint, remember to add tests!
   - `GET /data`
   - `GET /data/:someParameter`
   - filter data use query params
