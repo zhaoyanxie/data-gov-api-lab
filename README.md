@@ -12,7 +12,7 @@ In this lab, we will create CRUD api endpoints to serve data in real-time! The d
 
 - Find and download an interesting CSV file from [data.gov.sg](https://data.gov.sg/dataset?groups=society)
   - (if you can't find any interesting data in CSV format, you can serve the kindergarten data, which you can find in `./utils/`)
-- Move the csv file to `./utils` and rename it to `utils/data.csv` (you can replace the existing file)
+- Unzip the downloaded file move the csv file to `./utils` and rename it to `utils/data.csv` (you can replace the existing file)
 - Convert csv file to JSON: `node utils/convertCSVToJSON.js` (you can replace the existing file)
 - Load JSON data as a javascript object. You can find a code sample for doing this in `./demo.js`. Execute demo.js by running: `node demo.js`
 - Serve data via CRUD endpoints!
