@@ -1,10 +1,9 @@
 const express = require("express");
 
 const app = express();
-const loadJSON = require("./utils/helper-functions").loadJSON;
 
 const data = require("./utils/data.json");
-console.log(data)
+console.log(data);
 
 app.use(express.json());
 
