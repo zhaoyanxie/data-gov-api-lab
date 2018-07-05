@@ -2,32 +2,34 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "Your API name"
+    "title": "Healthier Food Choices"
   },
   "servers": [
     {
-      "url": "https://api-url.com"
+      "url": "https://scenic-virgin-islands-80550.herokuapp.com/"
     }
   ],
   "paths": {
-    "/resource1": {
+    "/": {
       "get": {
-        "summary": "List all resource1",
+        "summary": "List all healthier food choices",
         "tags": [
-          "resource1"
+          "Root"
         ],
         "responses": {
           "200": {
-            "description": "An array of blog posts",
+            "description": "An array of healthier food choices",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
                     "example": {
-                      "id": 5,
-                      "name": "hello",
-                      "flavour": "margarita"
+                      "main_food_group": "Beverages",
+                      "company_name": "Aero Vending Private Limited",
+                      "product_name": "Aero Vending Apple Concentrate",
+                      "brand_name": "Aero Vending",
+                      "product_weight": "5 US Gallon"
                     }
                   }
                 }
@@ -35,11 +37,45 @@
             }
           }
         }
+      }
+    },
+    "/main_food_group": {
+      "get": {
+        "summary": "List only the available food groups",
+        "tags": [
+          "main_food_group"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": [{
+                      "main_food_group": "Seafood",
+                      "company_name": "Clouet Trading Pte Ltd",
+                      "product_name": "Ayam Brand Chilli Tuna Light",
+                      "brand_name": "Ayam Brand",
+                      "product_weight": "185g"
+                    },
+                    {
+                      "main_food_group": "Seafood",
+                      "company_name": "Clouet Trading Pte Ltd",
+                      "product_name": "Ayam Brand Club Sardines in Extra Virgin Olive Oil",
+                      "brand_name": "Ayam Brand",
+                      "product_weight": "120g"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
-        "summary": "Create a resource",
+        "summary": "Create a new food group",
         "tags": [
-          "resource1"
+          "main_food_group"
         ],
         "responses": {
           "201": {
@@ -51,20 +87,20 @@
         }
       }
     },
-    "/resource1/{id}": {
+    "/main_food_group/{group}": {
       "get": {
-        "summary": "Info for a specific resource",
+        "summary": "List all the available food of a specified group",
         "tags": [
-          "resource1"
+          "main_food_group"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "group",
             "in": "path",
             "required": true,
-            "description": "The id of the resource to retrieve",
+            "description": "The group of the food to retrieve, e.g. 'beverages', 'cereal', 'crisps', etc.",
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -74,10 +110,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "example": {
-                    "id": 5,
-                    "name": "something"
-                  }
+                  "example": [
+                    {
+                      "main_food_group": "Seafood",
+                      "company_name": "Clouet Trading Pte Ltd",
+                      "product_name": "Ayam Brand Chilli Tuna Light",
+                      "brand_name": "Ayam Brand",
+                      "product_weight": "185g"
+                      },
+                      {
+                      "main_food_group": "Seafood",
+                      "company_name": "Clouet Trading Pte Ltd",
+                      "product_name": "Ayam Brand Club Sardines in Extra Virgin Olive Oil",
+                      "brand_name": "Ayam Brand",
+                      "product_weight": "120g"
+                      }
+                  ]
                 }
               }
             }
@@ -87,16 +135,16 @@
       "put": {
         "summary": "Update a specific item",
         "tags": [
-          "resource1"
+          "main_food_group"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "group",
             "in": "path",
             "required": true,
-            "description": "The id of the resource to update",
+            "description": "The food group of the resource to update",
             "schema": {
-              "type": "number"
+              "type": "object"
             }
           }
         ],
@@ -107,8 +155,11 @@
             "application/json": {
               "schema": {
                 "example": {
-                  "id": 2,
-                  "name": "something"
+                		"main_food_group": "Beverages",
+                		"company_name": "New Company Name",
+                		"product_name": "New Product Name",
+                		"brand_name": "New brand name",
+                		"product_weight": "999 litres"
                 }
               }
             }
@@ -120,36 +171,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "example": {
-                    "id": 5,
-                    "name": "updated name"
-                  }
+                  "example": [
+                    {
+                  		"main_food_group": "Beverages",
+                  		"company_name": "New Company Name",
+                  		"product_name": "New Product Name",
+                  		"brand_name": "New brand name",
+                  		"product_weight": "999 litres"
+                    },
+                    {
+                      "main_food_group": "Beverages",
+                      "company_name": "Aero Vending Private Limited",
+                      "product_name": "Aero Vending Apple Concentrate",
+                      "brand_name": "Aero Vending",
+                      "product_weight": "5 US Gallon"
+                    }
+                  ]
                 }
               }
             }
           }
         }
-      }
-    },
-    "/resource2": {
-      "get": {
-        "summary": "List all resource1",
+      },
+      "delete": {
+        "summary": "Delete a main_food_group and the associated items",
         "tags": [
-          "resource2"
+          "main_food_group"
+        ],
+        "parameters": [
+          {
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "description": "The food group of the resource to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
-            "description": "List of resource objects",
+            "description": "Expected response to a valid request",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "example": {
-                      "id": 6,
-                      "special": "a different kind of resource"
+                  "example": 
+                    {
+                  		"message":"{main_food_group} deleted"
                     }
-                  }
                 }
               }
             }

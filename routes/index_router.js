@@ -3,7 +3,7 @@ const router = express.Router();
 let data = require("../utils/data.json");
 
 router.get("/", (req, res) => {
-  res.json(data);
+  res.redirect("/api-docs");
 });
 
 module.exports = router;

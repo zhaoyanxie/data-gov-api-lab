@@ -47,6 +47,7 @@ router.put("/:main_food_group", (req, res) => {
   res.json(getMainFoodGroupItems(req.params.main_food_group));
 });
 
+// TODO: a food group deleted
 router.delete("/:main_food_group", (req, res) => {
   const toDelete = req.params.main_food_group;
   data = data.filter(
