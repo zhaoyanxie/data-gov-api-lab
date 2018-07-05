@@ -41,6 +41,7 @@ router.post("/", (req, res) => {
   res.json(getAllFoodGroups(data));
 });
 
+// TODO: update a food item
 router.put("/:main_food_group", (req, res) => {
   data.unshift(req.body);
   res.json(getMainFoodGroupItems(req.params.main_food_group));
